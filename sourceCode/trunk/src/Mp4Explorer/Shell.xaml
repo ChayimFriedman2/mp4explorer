@@ -1,0 +1,112 @@
+﻿<Window x:Class="Mp4Explorer.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:app="clr-namespace:Mp4Explorer"
+        xmlns:cal="http://prismlibrary.com/"
+        Title="Mp4 Explorer"
+        Width="800"
+        Height="600"
+        Icon="/Mp4Explorer;component/App.ico"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Image x:Key="imageOpen"
+               Width="16"
+               Height="16"
+               Source="/Mp4Explorer;component/Images/open_16.ico" />
+        <Image x:Key="imageSmoothStreaming"
+               Width="16"
+               Height="16"
+               Source="/Mp4Explorer;component/Images/smooth_streaming_16.png" />
+        <Image x:Key="imageFov"
+               Width="16"
+               Height="16"
+               Source="/Mp4Explorer;component/Images/fov_16.png" />
+        <Image x:Key="imageUploadToAzure"
+               Width="16"
+               Height="16"
+               Source="/Mp4Explorer;component/Images/upload_to_azure_16.png" />
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Top">
+            <Menu Name="menuMain"
+                  Height="22">
+                <MenuItem Header="File">
+                    <MenuItem Command="{x:Static app:GlobalCommands.OpenCommand}"
+                              Header="Open"
+                              Icon="{StaticResource imageOpen}" />
+                    <Separator />
+                    <MenuItem Name="menuItemExit"
+                              Click="MenuItemExit_Click"
+                              Header="Exit" />
+                </MenuItem>
+                <MenuItem Header="Tools">
+                    <MenuItem Header="Smooth Streaming"
+                              Icon="{StaticResource imageSmoothStreaming}">
+                        <MenuItem Name="menuItemCreateFixedOffset"
+                                  Click="MenuItemCreateFixedOffset_Click"
+                                  Header="Create Fixed Offset"
+                                  Icon="{StaticResource imageFov}" />
+                        <MenuItem Name="menuItemUploadToAzure"
+                                  Click="MenuItemUploadToAzure_Click"
+                                  Header="Upload to Azure"
+                                  Icon="{StaticResource imageUploadToAzure}" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Name="menuItemAbout"
+                              Click="MenuItemAbout_Click"
+                              Header="About Mp4 Explorer" />
+                </MenuItem>
+            </Menu>
+        </Border>
+        <Border DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Command="{x:Static app:GlobalCommands.OpenCommand}">
+                    <Image Height="16"
+                           Source="/Mp4Explorer;component/Images/open_16.ico"
+                           ToolTip="Open" />
+                </Button>
+                <Separator />
+                <Button Click="MenuItemCreateFixedOffset_Click">
+                    <Image Height="16"
+                           Source="/Mp4Explorer;component/Images/fov_16.png"
+                           ToolTip="Create Fixed Offset" />
+                </Button>
+                <Button Click="MenuItemUploadToAzure_Click">
+                    <Image Height="16"
+                           Source="/Mp4Explorer;component/Images/upload_to_azure_16.png"
+                           ToolTip="Upload to Azure" />
+                </Button>
+            </ToolBar>
+        </Border>
+        <Border DockPanel.Dock="Bottom">
+            <StatusBar>
+                <StatusBarItem Name="statusBarItemPath"
+                               Content=" " />
+            </StatusBar>
+        </Border>
+        <Border>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Name="LeftRegion"
+                                Grid.Column="0"
+                                cal:RegionManager.RegionName="LeftRegion" />
+                <GridSplitter Grid.Column="1"
+                              Width="4"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Stretch"
+                              ShowsPreview="True" />
+                <Border Grid.Column="2"
+                        BorderBrush="Gray"
+                        BorderThickness="1">
+                    <ContentControl Name="MainRegion"
+                                    cal:RegionManager.RegionName="MainRegion" />
+                </Border>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Window>

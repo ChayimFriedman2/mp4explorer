@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed.",
+    "ClosedDate": "2009-08-01T21:00:47.363-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "MP4 Explorer opens then exits, no error is generated.",
+    "LastUpdatedDate": "2013-05-16T01:44:05.497-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mp4explorer",
+    "ReportedDate": "2009-07-15T17:48:49.87-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MP4 Explorer opens then exits",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 23504
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "How long it remains open?",
+      "PostedDate": "2009-07-31T11:00:17.693-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-01T21:00:47.363-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T19:49:58.743-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T01:44:05.497-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <UseWpf>true</UseWpf>
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Images\avcc_16.ico" />
+    <None Remove="Images\cdsc_16.ico" />
+    <None Remove="Images\co64_16.ico" />
+    <None Remove="Images\ctts_16.ico" />
+    <None Remove="Images\dinf_16.ico" />
+    <None Remove="Images\edts_16.ico" />
+    <None Remove="Images\elst_16.ico" />
+    <None Remove="Images\error_16.png" />
+    <None Remove="Images\fov_16.png" />
+    <None Remove="Images\ftyp_16.ico" />
+    <None Remove="Images\hdlr_16.ico" />
+    <None Remove="Images\hind_16.ico" />
+    <None Remove="Images\hint_16.ico" />
+    <None Remove="Images\mdhd_16.ico" />
+    <None Remove="Images\mdia_16.ico" />
+    <None Remove="Images\mehd_16.ico" />
+    <None Remove="Images\mfhd_16.ico" />
+    <None Remove="Images\mfra_16.ico" />
+    <None Remove="Images\mfro_16.ico" />
+    <None Remove="Images\minf_16.ico" />
+    <None Remove="Images\moov_16.ico" />
+    <None Remove="Images\movie_16.ico" />
+    <None Remove="Images\mvex_16.ico" />
+    <None Remove="Images\mvhd_16.ico" />
+    <None Remove="Images\open_16.ico" />
+    <None Remove="Images\sdtp_16.ico" />
+    <None Remove="Images\smhd_16.ico" />
+    <None Remove="Images\smooth_streaming_16.png" />
+    <None Remove="Images\stbl_16.ico" />
+    <None Remove="Images\stco_16.ico" />
+    <None Remove="Images\stsc_16.ico" />
+    <None Remove="Images\stss_16.ico" />
+    <None Remove="Images\stsz_16.ico" />
+    <None Remove="Images\stts_16.ico" />
+    <None Remove="Images\tfhd_16.ico" />
+    <None Remove="Images\tfra_16.ico" />
+    <None Remove="Images\tkhd_16.ico" />
+    <None Remove="Images\traf_16.ico" />
+    <None Remove="Images\trak_16.ico" />
+    <None Remove="Images\tref_16.ico" />
+    <None Remove="Images\trex_16.ico" />
+    <None Remove="Images\trun_16.ico" />
+    <None Remove="Images\upload_to_azure_16.png" />
+    <None Remove="Images\vmhd_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <None Include="..\..\..\..\license\license.json">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App.ico" />
+    <Resource Include="Images\avcc_16.ico" />
+    <Resource Include="Images\cdsc_16.ico" />
+    <Resource Include="Images\co64_16.ico" />
+    <Resource Include="Images\ctts_16.ico" />
+    <Resource Include="Images\dinf_16.ico" />
+    <Resource Include="Images\edts_16.ico" />
+    <Resource Include="Images\elst_16.ico" />
+    <Resource Include="Images\error_16.png" />
+    <Resource Include="Images\fov_16.png" />
+    <Resource Include="Images\ftyp_16.ico" />
+    <Resource Include="Images\hdlr_16.ico" />
+    <Resource Include="Images\hind_16.ico" />
+    <Resource Include="Images\hint_16.ico" />
+    <Resource Include="Images\mdhd_16.ico" />
+    <Resource Include="Images\mdia_16.ico" />
+    <Resource Include="Images\mehd_16.ico" />
+    <Resource Include="Images\mfhd_16.ico" />
+    <Resource Include="Images\mfra_16.ico" />
+    <Resource Include="Images\mfro_16.ico" />
+    <Resource Include="Images\minf_16.ico" />
+    <Resource Include="Images\moov_16.ico" />
+    <Resource Include="Images\movie_16.ico" />
+    <Resource Include="Images\mvex_16.ico" />
+    <Resource Include="Images\mvhd_16.ico" />
+    <Resource Include="Images\open_16.ico" />
+    <Resource Include="Images\sdtp_16.ico" />
+    <Resource Include="Images\smhd_16.ico" />
+    <Resource Include="Images\smooth_streaming_16.png" />
+    <Resource Include="Images\stbl_16.ico" />
+    <Resource Include="Images\stco_16.ico" />
+    <Resource Include="Images\stsc_16.ico" />
+    <Resource Include="Images\stss_16.ico" />
+    <Resource Include="Images\stsz_16.ico" />
+    <Resource Include="Images\stts_16.ico" />
+    <Resource Include="Images\tfhd_16.ico" />
+    <Resource Include="Images\tfra_16.ico" />
+    <Resource Include="Images\tkhd_16.ico" />
+    <Resource Include="Images\traf_16.ico" />
+    <Resource Include="Images\trak_16.ico" />
+    <Resource Include="Images\tref_16.ico" />
+    <Resource Include="Images\trex_16.ico" />
+    <Resource Include="Images\trun_16.ico" />
+    <Resource Include="Images\upload_to_azure_16.png" />
+    <Resource Include="Images\vmhd_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.4.4" />
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.4.2" />
+    <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
+    <PackageReference Include="WPFHexaEditor" Version="2.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CMStream.Mp4">
+      <HintPath>..\Libraries\CMStream.Mp4.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <Copyright>Copyright © 2009 CM Streaming Technologies</Copyright>
+    <PackageLicenseFile>license.json</PackageLicenseFile>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <Product>Mp4 Explorer</Product>
+    <Company>CM Streaming Technologies</Company>
+    <Authors />
+  </PropertyGroup>
+  <ItemGroup>
+    <LibrariesToCopy Include="$(SolutionDir)Libraries\av*.dll;$(SolutionDir)Libraries\swscale-*.dll" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="@(LibrariesToCopy)" DestinationFolder="$(TargetDir)" />
+  </Target>
+</Project>

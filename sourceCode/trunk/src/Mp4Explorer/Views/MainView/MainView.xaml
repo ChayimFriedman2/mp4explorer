@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Mp4Explorer.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer>
+        <StackPanel Name="stackPanel">
+            <Expander Name="expanderFileInfo"
+                      Background="LightBlue"
+                      Header="File info"
+                      IsExpanded="True">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           HorizontalContentAlignment="Right"
+                           Content="Major brand:" />
+                    <TextBox Name="textBoxMajorBrand"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             IsReadOnly="True" />
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           HorizontalContentAlignment="Right"
+                           Content="Minor version:" />
+                    <TextBox Name="textBoxMinorVersion"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             IsReadOnly="True" />
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           HorizontalContentAlignment="Right"
+                           Content="Compatible brands:" />
+                    <TextBox Name="textBoxCompatibleBrands"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             IsReadOnly="True" />
+                </Grid>
+            </Expander>
+            <Expander Name="expanderMovieInfo"
+                      Background="LightBlue"
+                      Header="Movie info"
+                      IsExpanded="True">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           HorizontalContentAlignment="Right"
+                           Content="Duration(ms):" />
+                    <TextBox Name="textBoxDurationMs"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             IsReadOnly="True" />
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           HorizontalContentAlignment="Right"
+                           Content="Time scale:" />
+                    <TextBox Name="textBoxTimeScale"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             IsReadOnly="True" />
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           HorizontalContentAlignment="Right"
+                           Content="Tracks:" />
+                    <TextBox Name="textBoxTracks"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             IsReadOnly="True" />
+                </Grid>
+            </Expander>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

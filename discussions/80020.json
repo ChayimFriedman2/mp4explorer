@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "274143",
+    "ThreadId": "80020",
+    "Html": "<p>There is a bug with Mp4TrunBox parsing. &nbsp;It is reading Uint values, but Sample Compostion Time Offset needs to be an integer since it can be negative for B-Frames. &nbsp;I can see the problem in .net Reflector, and would be happy to fix it if I have access to the CMStream.mp4 source.</p>",
+    "PostedDate": "2010-01-06T22:22:07.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274146",
+    "ThreadId": "80020",
+    "Html": "<p>Hi,</p>\r\n<p>The CMStream.Mp4 library is not ready for an open source release. Regarding the trun parsing, the Sample Composition Time Offset is an unsigned int (32 bits) based on the specification ISO/IEC-14496 Part 12. The notion of B-Frames is codec specific and the number must be interpreted as a signed int. In the .NET case, simply do an Int32 type cast. I used this for a deep understanding of Smooth Streaming.</p>\r\n<p>Regards.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-06T22:37:24.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274340",
+    "ThreadId": "80020",
+    "Html": "<p>Just checked the spec and you are correct. &nbsp;I guess that the fix should be in MP4Explorer based on the stream type.</p>",
+    "PostedDate": "2010-01-07T07:38:19.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275902",
+    "ThreadId": "80020",
+    "Html": "<p>Upon further investigation, I think that a negative value is not correct. &nbsp;The negative Sample Composition Time Offset is produced by Expression3 encoder when the profile is ismv. &nbsp;Other encoders that produce fragmented mp4 do not use negative values. &nbsp;Using a negative value for Sample Composition Time Offset, you get a dts &gt; pts, which makes no sense. &nbsp;The problem seems to be the Expression Encoder. &nbsp;However, I can not find enough information in the spec to say for sure. &nbsp;I know that you have been investigating MSFT adaptive streaming. &nbsp;Have you thought about this at all?</p>",
+    "PostedDate": "2010-01-11T14:41:31.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275911",
+    "ThreadId": "80020",
+    "Html": "<p>Actually, my thought is that the issue is related to the lack of specification. The problem is that the Silverlight decoder needs to receive the samples in decoding order. For simplification, I guess, Microsoft opted for put the samples in decoding order inside the mp4 container file instead of doing any reorganization in the MediaStreamSource. Under this conditions, you need negative values for the sample composition time offset for B-frames samples.<br><br>The silverlight decoder request the samples ahead of time and based on the stream parameters, he decides whether display, buffer or drop the frame.<br><br>Here I'm talking about Smooth Streaming. Hope this helps.</p>",
+    "PostedDate": "2010-01-11T15:11:22.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "276011",
+    "ThreadId": "80020",
+    "Html": "<p>The spec is definitely weak on details. &nbsp;I am working on understanding fragmented MP4 and smooth streaming, and am writing a fragmented mp4 parser and writer. &nbsp;I understand that MSFT needs to compute the pts. &nbsp;However, using negative values is wrong because it results in a dts that is later than the pts. &nbsp;In addition, storing a signed value in a field that is specified as unsigned is something I have never seen in any video spec, and is very unorthodox. &nbsp;The Flash encoder uses positive offsets, and the numbers make sense, and the B-frame pts == dts which is normal for video systems. &nbsp;MSFT seems to have gotten this one wrong&nbsp;</p>",
+    "PostedDate": "2010-01-11T22:27:29.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278256",
+    "ThreadId": "80020",
+    "Html": "<p>I wanted to follow-up on your post. &nbsp;All containers that I use store video in decode order. &nbsp;The use of the negative offset is wrong for two reasons: 1) the spec defines the field as unsigned, and 2) the result is frames with decode time occurring after presentation time, which is not possible. &nbsp;Negative presentation offset is not necessary to handle out-of-order decoding. &nbsp;If you normalize the values to 0 (add offset to get the negative offsets positive), everything works fine. &nbsp;This is what I am doing in my parser, since I cannot deliver samples downstream with decode time that occurs two frames after presentation . &nbsp;Also, I have noted that MSFT's adaptive streaming files are not even compliant with those parts of the MP4 spec that are well defined. &nbsp;</p>",
+    "PostedDate": "2010-01-17T14:53:04.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

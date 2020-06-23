@@ -1,0 +1,69 @@
+﻿<Window x:Class="Mp4Explorer.CreateFixedOffsetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create Fixed Offset"
+        Icon="/Mp4Explorer;component/App.ico"
+        Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <GroupBox Margin="4,4,4,4"
+                  Header="Smooth Streaming video">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"
+                            Orientation="Horizontal">
+                    <Label Margin="4,4,4,4"
+                           Content="Manifest file (.ismc):" />
+                    <TextBox Name="textBoxManifestPath"
+                             Width="392"
+                             Margin="0,4,0,4"
+                             IsReadOnly="True" />
+                    <Button Name="buttonBrowseManifest"
+                            Height="26"
+                            Margin="4,4,0,4"
+                            Padding="2"
+                            Click="ButtonBrowseManifest_Click"
+                            Content="Browse..." />
+                </StackPanel>
+                <ListView Name="listViewFiles"
+                          Grid.Row="1"
+                          Width="570"
+                          Height="280" />
+                <StackPanel Grid.Row="2"
+                            Margin="4,0,0,0"
+                            Orientation="Horizontal">
+                    <Label Margin="4,4,4,4"
+                           Content="Status:" />
+                    <Label Name="labelStatus"
+                           Width="510"
+                           Margin="4,4,0,4"
+                           Content="[Status]" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <StackPanel Margin="4,0,4,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button Name="buttonCalculate"
+                    Width="60"
+                    Height="26"
+                    Margin="4,0,4,4"
+                    Padding="2"
+                    Click="ButtonButtonCalculate_Click"
+                    Content="Calculate" />
+            <Button Width="60"
+                    Height="26"
+                    Margin="4,0,4,4"
+                    Padding="2"
+                    Content="Close"
+                    IsCancel="True" />
+        </StackPanel>
+    </StackPanel>
+</Window>
